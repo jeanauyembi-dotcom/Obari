@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Obari</string>
+    <string name="app_tagline">Votre marketplace de confiance</string>
+
+    <!-- Login -->
+    <string name="mode_connexion">Connexion</string>
+    <string name="mode_inscription">Inscription</string>
+    <string name="hint_nom">Nom complet</string>
+    <string name="hint_telephone">Numéro de téléphone</string>
+    <string name="hint_password">Mot de passe</string>
+    <string name="label_role">Votre rôle</string>
+    <string name="btn_connecter">Se connecter</string>
+    <string name="btn_inscrire">Créer mon compte</string>
+    <string name="inscription_reussie">Bienvenue sur Obari !</string>
+    <string name="switch_to_register">Pas encore de compte ? S\'inscrire</string>
+    <string name="switch_to_login">Déjà un compte ? Se connecter</string>
+
+    <!-- Client / Marketplace -->
+    <string name="titre_catalogue">Marketplace</string>
+    <string name="hint_recherche">Rechercher un produit…</string>
+    <string name="msg_produit_selectionne">%1$s</string>
+    <string name="cd_image_produit">Image du produit</string>
+    <string name="label_stock">Stock : %1$d</string>
+    <string name="label_stock_faible">Stock limité : %1$d</string>
+    <string name="label_promo">-%1$d%%</string>
+    <string name="label_prix_barre">%1$.0f FCFA</string>
+    <string name="label_categorie_tous">Tous</string>
+    <string name="label_voir_detail">Voir le produit</string>
+    <string name="label_ajouter_panier">Ajouter au panier</string>
+    <string name="msg_panier_ajoute">%1$s ajouté au panier</string>
+
+    <!-- Fabricant -->
+    <string name="titre_fabricant">Espace Fabricant</string>
+    <string name="titre_ajouter_produit">Nouveau produit</string>
+    <string name="titre_mes_produits">Mes produits (%1$d)</string>
+    <string name="hint_nom_produit">Nom du produit</string>
+    <string name="hint_prix_produit">Prix (FCFA)</string>
+    <string name="hint_description_produit">Description du produit</string>
+    <string name="hint_categorie_produit">Catégorie</string>
+    <string name="hint_stock_produit">Stock disponible</string>
+    <string name="hint_promo_produit">Remise % (0 = sans promo)</string>
+    <string name="btn_ajouter_produit">Publier</string>
+    <string name="btn_annuler">Annuler</string>
+    <string name="produit_ajoute">Produit publié !</string>
+    <string name="produit_supprime">Produit supprimé</string>
+    <string name="confirm_supprimer">Supprimer ce produit ?</string>
+    <string name="label_stat_produits">Produits publiés</string>
+    <string name="label_stat_ventes">Ventes ce mois</string>
+    <string name="label_stat_revenus">Revenus (FCFA)</string>
+    <string name="label_aucun_produit">Aucun produit publié.\nAppuyez sur + pour ajouter.</string>
+
+    <!-- Trieur -->
+    <string name="titre_trieur">Mon Espace</string>
+    <string name="titre_portefeuille">Portefeuille</string>
+    <string name="label_solde">%1$.0f FCFA</string>
+    <string name="label_solde_titre">Solde disponible</string>
+    <string name="info_tri_en_attente">Prenez une photo pour démarrer le tri</string>
+    <string name="info_photo_prise">Photo capturée. Vérifiez et validez.</string>
+    <string name="btn_valider_tri">Valider le tri</string>
+    <string name="btn_prendre_photo">Prendre une photo</string>
+    <string name="msg_historique_tri">Historique des tris</string>
+    <string name="tri_valide">Tri validé !</string>
+    <string name="cd_photo_tri">Photo du tri</string>
+    <string name="label_nb_tris">Tris effectués</string>
+    <string name="label_gains_semaine">Gains cette semaine</string>
+
+    <!-- Navigation -->
+    <string name="nav_accueil">Accueil</string>
+    <string name="nav_marketplace">Marketplace</string>
+    <string name="nav_profil">Profil</string>
+    <string name="nav_deconnexion">Se déconnecter</string>
+
+    <!-- Erreurs -->
+    <string name="error_champs_vides">Remplissez tous les champs obligatoires.</string>
+    <string name="error_prix_invalide">Prix invalide.</string>
+    <string name="error_compte_introuvable">Compte introuvable.</string>
+    <string name="error_firebase">Erreur réseau : %1$s</string>
+    <string name="error_camera_indisponible">Appareil photo non disponible.</string>
+    <string name="error_creation_fichier">Impossible de créer le fichier.</string>
+    <string name="error_permission_camera">Permission caméra refusée.</string>
+    <string name="error_pas_de_photo">Prenez d\'abord une photo.</string>
+    <string name="error_stock_invalide">Stock invalide.</string>
+</resources>

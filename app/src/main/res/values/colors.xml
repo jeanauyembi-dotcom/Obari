@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand primaire - vert Obari -->
+    <color name="primary">#1B8A3C</color>
+    <color name="primary_dark">#0F5C26</color>
+    <color name="primary_light">#E8F5E9</color>
+    <color name="primary_medium">#4CAF50</color>
+
+    <!-- Accent / CTA -->
+    <color name="accent">#FF6F00</color>
+    <color name="accent_light">#FFF3E0</color>
+
+    <!-- Fond -->
+    <color name="background">#F8F9FA</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#F1F3F5</color>
+    <color name="divider">#E8EAED</color>
+
+    <!-- Texte -->
+    <color name="text_primary">#1A1A2E</color>
+    <color name="text_secondary">#6C757D</color>
+    <color name="text_hint">#ADB5BD</color>
+    <color name="text_on_primary">#FFFFFF</color>
+    <color name="text_on_accent">#FFFFFF</color>
+
+    <!-- Status / Tag -->
+    <color name="success">#28A745</color>
+    <color name="warning">#FFC107</color>
+    <color name="error">#DC3545</color>
+    <color name="info">#17A2B8</color>
+
+    <!-- Badge promo -->
+    <color name="promo_badge">#E53935</color>
+    <color name="stock_low">#FF6F00</color>
+    <color name="stock_ok">#1B8A3C</color>
+
+    <!-- Status Bar -->
+    <color name="statusBarColor">#0F5C26</color>
+
+    <!-- Card elevation shadow -->
+    <color name="shadow">#1A000000</color>
+</resources>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "905999747997",
+    "project_id": "obari-e4f66",
+    "storage_bucket": "obari-e4f66.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:905999747997:android:7c30692c246c4a468cfd74",
+        "android_client_info": {
+          "package_name": "com.obari"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8is1qkBWEsS205O33qeVXATVxAPKJvbc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
