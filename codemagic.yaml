@@ -1,1 +1,114 @@
-null
+version: stable
+
+workflows:
+  obari-android-debug:
+    name: "Obari – APK Debug"
+    max_build_duration: 30
+    instance_type: mac_mini_m2
+
+    environment:
+      java: 17
+
+    scripts:
+      # 1 — Corriger le build.gradle racine pour exclure le plugin google-services
+      - name: Patcher root build.gradle
+        script: |
+          cat > "$CM_BUILD_DIR/build.gradle" << 'GRADLE'
+          plugins {
+              id 'com.android.application' version '8.2.0' apply false
+          }
+          GRADLE
+
+      # 2 — Donner les droits d'exécution au wrapper Gradle
+      - name: Chmod gradlew
+        script: |
+          chmod +x "$CM_BUILD_DIR/gradlew"
+
+      # 3 — Compiler l'APK debug
+      - name: Build APK Debug
+        script: |
+          cd "$CM_BUILD_DIR"
+          ./gradlew assembleDebug \
+            --no-daemon \
+            --stacktrace
+
+    artifacts:
+      - app/build/outputs/apk/debug/app-debug.apk
+
+    publishing:
+      email:
+        recipients:
+          - jeanauyembi@gmail.com
+        notify:
+          success: true
+          failure: true
+
+
+  obari-android-release:
+    name: "Obari – APK Release (signé)"
+    max_build_duration: 30
+    instance_type: mac_mini_m2
+
+    environment:
+      java: 17
+      vars:
+        PACKAGE_NAME: "com.obari"
+      groups:
+        - obari_signing
+
+    scripts:
+      # 1 — Patcher root build.gradle
+      - name: Patcher root build.gradle
+        script: |
+          cat > "$CM_BUILD_DIR/build.gradle" << 'GRADLE'
+          plugins {
+              id 'com.android.application' version '8.2.0' apply false
+          }
+          GRADLE
+
+      # 2 — Décoder le keystore depuis la variable Codemagic
+      - name: Décoder keystore
+        script: |
+          echo "$CM_KEYSTORE" | base64 --decode > "$CM_BUILD_DIR/obari.keystore"
+
+      # 3 — Injecter la config de signature dans app/build.gradle
+      - name: Configurer la signature release
+        script: |
+          sed -i 's|minifyEnabled false|minifyEnabled false|' "$CM_BUILD_DIR/app/build.gradle"
+          cat >> "$CM_BUILD_DIR/app/build.gradle" << SIGN_EOF
+
+          android.signingConfigs {
+              release {
+                  storeFile file("${CM_BUILD_DIR}/obari.keystore")
+                  storePassword System.getenv("CM_KEYSTORE_PASSWORD")
+                  keyAlias System.getenv("CM_KEY_ALIAS")
+                  keyPassword System.getenv("CM_KEY_PASSWORD")
+              }
+          }
+          android.buildTypes.release.signingConfig android.signingConfigs.release
+          SIGN_EOF
+
+      # 4 — Chmod gradlew
+      - name: Chmod gradlew
+        script: |
+          chmod +x "$CM_BUILD_DIR/gradlew"
+
+      # 5 — Compiler l'APK release signé
+      - name: Build APK Release
+        script: |
+          cd "$CM_BUILD_DIR"
+          ./gradlew assembleRelease \
+            --no-daemon \
+            --stacktrace
+
+    artifacts:
+      - app/build/outputs/apk/release/app-release.apk
+      - app/build/outputs/mapping/release/mapping.txt
+
+    publishing:
+      email:
+        recipients:
+          - jeanauyembi@gmail.com
+        notify:
+          success: true
+          failure: true
